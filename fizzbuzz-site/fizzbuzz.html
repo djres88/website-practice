@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Custom FizzBuzz</title>
+    <style>
+      body {
+        background-color: #eee;
+        background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+        linear-gradient(-45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+        background-size:60px 60px;
+      }
+      .topNav {
+        text-align: center;
+        background-color: #81F7F3;
+        margin-top: -12px;
+        margin-right: -20px;
+        margin-left: -20px;
+        height: 120px;
+        padding-top: 30px;
+      }
+      #topNavSubHeader {
+        text-align: center;
+        margin-top: -80px;
+      }
+      /*creating tempClass so that I can see elements during testing*/
+      .tempClass {
+        background-color: white;
+        height: 1000px;
+      }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script type="text/javascript">
+    $(document).ready(function() {
+      $("#calculator").click(function() {
+        var end = $("#userEndNum").val();
+        var fizzNum = $("#userFizzNum").val();
+        var buzzNum = $("#userBuzzNum").val();
+        var guess = $("#userGuess").val();
+        var result = 0;
+        var counter = 5;
+        if (counter % Number(fizzNum) === 0) {
+          alert("Fizz!");
+        }
+        else if (counter % Number(buzzNum) === 0) {
+          alert("Buzz!");
+        }
+        else if ((counter % Number(fizzNum) === 0) && (counter % Number(buzzNum) === 0)) {
+          alert("FizzBuzz!");
+        }
+        else {
+          alert(counter);
+        }
+      });
+    });
+    </script>
+  </head>
+  <body>
+    <h1 class = "topNav">FizzBuzz</h1>
+    <h2 id = "topNavSubHeader">Create Your Own Custom FizzBuzz Games!</h2><br>
+    <!--Calling tempClass so that I can see elements during testing-->
+    <div class="tempClass">
+      Select a denominator for FIZZ: <input type="number" class="denominators" id="userBuzzNum" value="3"><br>
+      Choose a denominator for BUZZ: <input type="number" class="denominators" id="userBuzzNum" value="5"><br>
+      How high would you like to count? <input type="number" id="userEndNum" value="100"><br>
+      Guess your answer! Type the number, buzz, fizz, or FizzBuzz! <br>
+      <input type="number" id="userGuess" value="1"><br>
+      <input type="submit" id="calculator" value="Test My Answer">
+      <!--Work on reset value:
+      <input type="submit" id="reset" value="Reset Values for FizzBuzz!">
+    -->
+    </div>
+  </body>
+</html>
