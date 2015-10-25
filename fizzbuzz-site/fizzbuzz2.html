@@ -23,6 +23,7 @@
       border: 5px;
       width: 140px;
       height: 100px;
+      font-family: acme;
       font-size: 20px;
       margin: 30px;
       margin-top: 10px;
@@ -48,9 +49,10 @@
       border-color: red;
     }
     #currentNumber {
+      font-family: acme;
       background-color:red;
       color:white;
-      padding-bottom: 5px;
+      padding-bottom: -3px;
       margin-bottom:-30px;
       text-align: center;
       border-radius:50%;
@@ -67,6 +69,10 @@
       color: yellow;
       background-color: blue;
       border-color: white;
+    }
+    #counterIconText {
+      margin-left:385px;
+      margin-top:-98px;
     }
     #buzzIcon {
     }
@@ -96,10 +102,12 @@
       $("#reset").click(function() {
         counter = 1;
         $('#currentNumber').text(counter);
+        $('#counterIconText').text(counter+1);
       });
       $(".icons").click(function() {
         counter += 1;
         $('#currentNumber').text(counter);
+        $('#counterIconText').text(counter+1);
       });
       $("#counterIcon").click(function() {
         //if(divisibleBy(counter,$("#")))
@@ -130,7 +138,7 @@
   <!--Add submit buttons to confirm user's fizz selection-->
   <input type="submit" class="confirm" id="fizzConfirm" value="Confirm"><br>
   <!--Add reset button to let user change selections-->
-  <input type="submit" class="confirm" id="reset" value="Reset My Selectios"><br>
+  <input type="submit" class="confirm" id="reset" value="Reset My Selections"><br>
   <!--Add "Play Game!" button that triggers game. In jQuery, want selections to fade out/move the numbers, and have only the numbers and reset displayed.-->
   <input type="submit" id="playGame" value="Start Your Game!"><br>
   <!--Add icons and ids for the game. When clicked, the game will indicate right/wrong and move on to the next counter.-->
@@ -139,11 +147,12 @@
     <div id="currentNumber">1</div><br>
     <h2 id="nextNumberMessage">What comes next?</h2>
     <p id="selectAnswer">Click your answer below:</p>
-    <input type="submit" class="icons" id="counterIcon" value=#>
+    <input type="submit" class="icons" id="counterIcon" value=" ">
     <input type="submit" class="icons" id="fizzIcon" value="Fizz">
     <input type="submit" class="icons" id="buzzIcon" value="Buzz">
     <input type="submit" class="icons" id="fizzBuzzIcon" value="FizzBuzz">
   </center>
-  <div id="counter"></div>
+  <!--Need to figure out how to place the variable on a submit button. Might be better to change the inputs to images, actually.-->
+  <div id="counterIconText">1</div>
 </body>
 </html>
