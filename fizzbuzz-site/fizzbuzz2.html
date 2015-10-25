@@ -2,21 +2,70 @@
 <html>
 <head>
   <title>Test</title>
+  <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,400italic' rel='stylesheet' type='text/css'>
   <style>
-    .confirm{
-
+    body {
+      font-family: "Open Sans", sans-serif;
+      /*background-color: #eee;
+      background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+      linear-gradient(-45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+      background-size:60px 60px;
+      color: blue;*/
+    }
+    h1 {
+      font-family: acme;
+      font-size: 60px
+    }
+    .confirm {
     }
     .icons {
       border: 5px;
       width: 140px;
       height: 100px;
-      margin-top: 200px;
-      margin-right: 50px;
       font-size: 20px;
+      margin: 30px;
+      margin-top: 10px;
+      text-align:center;
+    }
+    #topNav {
+      text-align: center;
+      background-color: #81F7F3;
+      margin-top: -12px;
+      margin-right: -20px;
+      margin-left: -20px;
+      height: 120px;
+      padding-top: 30px;
+    }
+    #topNavSubHeader {
+      margin-top:-80px;
+      margin-bottom: 50px;
+      text-align:center;
+    }
+    #currentNumberMessage {
+      background-color: white;
+      background-size: 50px 50px;
+      border-color: red;
+    }
+    #currentNumber {
+      background-color:red;
+      color:white;
+      padding-bottom: 5px;
+      margin-bottom:-30px;
+      text-align: center;
+      border-radius:50%;
+      height: 110px;
+      width: 168px;
+      font-size: 80px;
+    }
+    #selectAnswer{
+      font-style: italic;
+      font-size: 16px;
+      margin-top: -10px;
     }
     #counterIcon {
       color: yellow;
-      background-color: black;
+      background-color: blue;
       border-color: white;
     }
     #buzzIcon {
@@ -30,20 +79,47 @@
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
+      var counter = 1;
+      function divisibleBy(n, divisor) {
+        return(n % divisor === 0);
+      };
+      function fizzTest() {
+        divisibleBy()
+      };
+      function buzzTest() {
+        divisibleBy()
+      }
+      function fizzBuzzTest() {
+        if(divisibleBy((counter,$("#userFizzNum"))&&(counter,$("#userBuzzNum"))
+      }
+      $("#reset").click(function() {
+        counter = 1;
+        $('#currentNumber').text(counter);
+      });
       $(".icons").click(function() {
-        //temp for texting
-        alert("test");
-        if(guess === correctAnswer) {
-          alert("Yay")// Right message, counter up one
-        } else {
-          alert("Nay")// Wrong message, counter up one
-        }
+        counter += 1;
+        $('#currentNumber').text(counter);
+      });
+      $("#counterIcon").click(function() {
+        if(divisibleBy(counter,$("#")))
+      });
+      $("#fizzIcon").click(function() {
+        //code goes here.
+      });
+      $("#buzzIcon").click(function() {
+        //code goes here.
+      });
+      $("#fizzBuzzIcon").click(function() {
+        //code goes here.
       });
     });
+
   </script>
 </head>
 
 <body>
+  <h1 id="topNav">FizzBuzzable</h1>
+  <h2 id="topNavSubHeader">Create and play your own custom game of FizzBuzz!<h2>
   <!--Add user input fields for fizz-->
   Select a denominator for FIZZ: <input type="number" class="denominators" id="userFizzNum" value="3">
   <!--Add submit buttons to confirm user's fizz selection-->
@@ -54,11 +130,19 @@
   <input type="submit" class="confirm" id="fizzConfirm" value="Confirm"><br>
   <!--Add reset button to let user change selections-->
   <input type="submit" class="confirm" id="reset" value="Reset My Selectios"><br>
-  <!--Add "Play Game!" button that triggers game-->
+  <!--Add "Play Game!" button that triggers game. In jQuery, want selections to fade out/move the numbers, and have only the numbers and reset displayed.-->
+  <input type="submit" id="playGame" value="Start Your Game!"><br>
   <!--Add icons and ids for the game. When clicked, the game will indicate right/wrong and move on to the next counter.-->
-  <input type="submit" class="icons" id="counterIcon" value=#>
-  <input type="submit" class="icons" id="fizzIcon" value="Fizz">
-  <input type="submit" class="icons" id="buzzIcon" value="Buzz">
-  <input type="submit" class="icons" id="fizzBuzzIcon" value="FizzBuzz">
+  <center>
+    <h2 id="currentNumberMessage">The current count is:</h2>
+    <div id="currentNumber">1</div><br>
+    <h2 id="nextNumberMessage">What comes next?</h2>
+    <p id="selectAnswer">Click your answer below:</p>
+    <input type="submit" class="icons" id="counterIcon" value=#>
+    <input type="submit" class="icons" id="fizzIcon" value="Fizz">
+    <input type="submit" class="icons" id="buzzIcon" value="Buzz">
+    <input type="submit" class="icons" id="fizzBuzzIcon" value="FizzBuzz">
+  </center>
+  <div id="counter"></div>
 </body>
 </html>
