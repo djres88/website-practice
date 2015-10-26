@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Test</title>
+  <link href='https://fonts.googleapis.com/css?family=Acme' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,600italic,400italic' rel='stylesheet' type='text/css'>
+  <style>
+    body {
+      font-family: "Open Sans", sans-serif;
+      /*background-color: #eee;
+      background-image: linear-gradient(45deg, black 25%, transparent 25%, transparent 75%, black 75%, black),
+      linear-gradient(-45deg, black 25%, transparent 25%, transparent 75%, black 75%, black);
+      background-size:60px 60px;
+      color: blue;*/
+    }
+    h1 {
+      font-family: acme;
+      font-size: 60px
+    }
+    .confirm {
+    }
+    .icons {
+      border: 5px;
+      width: 140px;
+      height: 100px;
+      font-family: acme;
+      font-size: 20px;
+      margin: 30px;
+      margin-top: 10px;
+      text-align:center;
+    }
+    #topNav {
+      text-align: center;
+      background-color: #81F7F3;
+      margin-top: -12px;
+      margin-right: -20px;
+      margin-left: -20px;
+      height: 120px;
+      padding-top: 30px;
+    }
+    #topNavSubHeader {
+      margin-top:-80px;
+      margin-bottom: 50px;
+      text-align:center;
+    }
+    #currentNumberMessage {
+      background-color: white;
+      background-size: 50px 50px;
+      border-color: red;
+    }
+    #currentNumber {
+      font-family: acme;
+      background-color:red;
+      color:white;
+      padding-bottom: -3px;
+      margin-bottom:-30px;
+      text-align: center;
+      border-radius:50%;
+      height: 110px;
+      width: 168px;
+      font-size: 80px;
+    }
+    #selectAnswer{
+      font-style: italic;
+      font-size: 16px;
+      margin-top: -10px;
+    }
+    #counterIcon {
+      color: yellow;
+      background-color: blue;
+      border-color: white;
+    }
+    #counterIconText {
+      margin-left:385px;
+      margin-top:-98px;
+    }
+    #buzzIcon {
+    }
+    #buzzIcon {
+    }
+    #fizzBuzzIcon {
+    }
+  </style>
+  <script src= "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      var counter = 1;
+      var display = "";
+      var fizzNum = $("userFizzNum").val();
+      function divisibleBy(n, divisor) {
+        return (n % divisor === 0);
+      };
+      var changeDisplay = function () {
+        if (divisibleBy(counter, Number(fizzNum))) {
+          display = "Fizz";
+        }
+      };
+      /*
+          //else if (divisibleBy(counter($userBuzzNum))) {
+          //  display = "Buzz";
+          //};
+          //} else if (divisibleBy(counter,$(userBuzzNum))){
+          //  display = "Buzz";
+          //} else if (divisibleBy(counter,$(userFizzNum)) && divisibleBy(counter,$(userBuzzNum)) {
+          //  return "FizzBuzz";
+          //} else {
+          //  return counter;
+        };
+      var display = currentCount();*/
+      $(".icons").click(function() {
+          changeDisplay();
+          counter += 1;
+          $('#currentNumber').text(display);
+          $('#counterIconText').text(counter+1);
+      });
+      $("#fizzIcon").click(function() {
+        if(display === "Fizz"){
+          //this action;
+        }
+      });
+      $("#buzzIcon").click(function() {
+        if(display === "Buzz"){
+          //this action;
+        }
+      });
+      $("#fizzBuzzIcon").click(function() {
+        if(display === "FizzBuzz"){
+          //this action;
+        }
+      });
+      $("#counterIcon").click(function() {
+        if(display === counter){
+          //this action;
+        }
+      });
+      $("#reset").click(function() {
+        counter = 1;
+        $('#currentNumber').text(counter);
+        $('#counterIconText').text(counter+1);
+      });
+    });
+  </script>
+</head>
+
+<body>
+  <h1 id="topNav">FizzBuzzable</h1>
+  <h2 id="topNavSubHeader">Create and play your own custom game of FizzBuzz!<h2>
+  <!--Add user input fields for fizz-->
+  Select a denominator for FIZZ: <input class="fields" type="number" id="userFizzNum">
+  <!--Add submit buttons to confirm user's fizz selection-->
+  <input type="submit" class="confirm" id="fizzConfirm" value="Confirm"><br>
+  <!--Add user input fields for buzz-->
+  Select a denominator for BUZZ: <input class="fields" type="number" id="userBuzzNum">
+  <!--Add submit buttons to confirm user's fizz selection-->
+  <input type="submit" class="confirm" id="fizzConfirm" value="Confirm"><br>
+  <!--Add reset button to let user change selections-->
+  <input type="submit" class="confirm" id="reset" value="Reset My Selections"><br>
+  <!--Add "Play Game!" button that triggers game. In jQuery, want selections to fade out/move the numbers, and have only the numbers and reset displayed.-->
+  <input type="submit" id="playGame" value="Start Your Game!"><br>
+  <!--Add icons and ids for the game. When clicked, the game will indicate right/wrong and move on to the next counter.-->
+  <center>
+    <h2 id="currentNumberMessage">The current count is:</h2>
+    <div id="currentNumber">1</div><br>
+    <h2 id="nextNumberMessage">What comes next?</h2>
+    <p id="selectAnswer">Click your answer below:</p>
+    <input type="submit" class="icons" id="counterIcon" value=" ">
+    <input type="submit" class="icons" id="fizzIcon" value="Fizz">
+    <input type="submit" class="icons" id="buzzIcon" value="Buzz">
+    <input type="submit" class="icons" id="fizzBuzzIcon" value="FizzBuzz">
+  </center>
+  <!--Need to figure out how to place the variable on a submit button. Might be better to change the inputs to images, actually.-->
+  <div id="counterIconText">2</div>
+</body>
+</html>
