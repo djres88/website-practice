@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Addition</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+/*      INCORRECT. Must reference these variables INSIDE the click function in order to change them on every click.
+        var firstNumber = $("#userFirstNumber").val();
+        var secondNumber = $("userSecondNumber").val();
+        ^INCORRECT. Forgot #. Correct answer:
+        var secondNumber = $("#userSecondNumber").val();
+*/      $("#calculatorButton").click(function() {
+          var firstNumber = $("#userFirstNumber").val();
+          var secondNumber = $("#userSecondNumber").val();
+/*        sum = Number(firstNumber) + Number(secondNumber);
+          ^INCORRECT. forgot var. Correct answer:
+*/        var sum = Number(firstNumber) + Number(secondNumber);
+          /* REVIEW: display text on page.
+          $("displayResult").text(sum);
+          ^ INCORRECT. Forgot "#". Should be $(#"displayResult"):
+*/        $("#displayResult").text(sum);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    <h1>Addition</h1>
+    <p id="firstNumberPrompt" class="prompts">
+      <!--REVIEW: INPUT TYPES vs. SUBMIT-->
+      Enter your first number: <input class="fields" type="number" id="userFirstNumber" value="1">
+    </p>
+    <p id="secondNumberPrompt" class="prompts">
+      <!--REVIEW: INPUT TYPES vs. SUBMIT-->
+      Enter your second number: <input class="fields" type="number" id="userSecondNumber" value="2">
+    </p>
+    <!--REVIEW: submits/inputs/buttons-->
+    <!--INCORRECT: review this part of HTML.
+    <submit id="calculatorButton" value="submit"> -->
+    <!--INCORRECT AGAIN: Forgot quotes around "submit"
+    <input type=submit id="calculatorButton" value="submit"> -->
+    <input type="submit" id="calculatorButton" value="submit">
+    <div id="displayResult">Result</div>
+  </body>
+</html>
