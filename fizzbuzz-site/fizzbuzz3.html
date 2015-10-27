@@ -31,6 +31,7 @@
       margin: 30px;
       margin-top: 10px;
       text-align:center;
+      background-color: lightgray;
     }
     #topNav {
       text-align: center;
@@ -113,32 +114,41 @@
       margin-top: -10px;
     }
     #nextNumberIcon {
-      color: yellow;
-      background-color: blue;
-      border-color: white;
     }
-    #buzzIcon {
+    #fizzIcon {
     }
     #buzzIcon {
     }
     #fizzBuzzIcon {
+    }
+    .images {
+    }
+    #soda1 {
+      float: left;
+      width: 300px;
+      margin-top: -400px;
+      margin-left: 60px;
+    }
+    #bee1 {
+      float: right;
+      width: 220px;
+      margin-top: -370px;
+      margin-right: 70px;
     }
   </style>
   <script src= "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
   </script>
   <script type="text/javascript">
     $(document).ready(function() {
-      var userFizzRepeat = $("#userFizzNum").val();
-      var userBuzzRepeat = $("#userBuzzNum").val();
-      $("#userSelectFizz").text(userFizzRepeat);
-      $("#userSelectBuzz").text(userBuzzRepeat);
-      $("#userSelectFizz2").text(userFizzRepeat);
-      $("#userSelectBuzz2").text(userBuzzRepeat);
       var count = 0;
       function divisibleBy(n, divisor) {
         return (n % divisor === 0);
       };
       $("#playGame").click(function() {
+        var userFizzRepeat = $("#userFizzNum").val();
+        var userBuzzRepeat = $("#userBuzzNum").val();
+        $("#userSelectFizz").text(userFizzRepeat);
+        $("#userSelectBuzz").text(userBuzzRepeat);
         $("#instructionsHeader").fadeOut();
         $("#instructionsFade").fadeOut();
         $("#readyMessage").fadeOut();
@@ -176,28 +186,39 @@
         $('#currentNumber').text(displayCurrent);
         $('#nextNumberIcon').text(count+1);
       });
-      /* Tests depending on user's click
+      /* Tests depending on user's click */
       $("#fizzIcon").click(function() {
-        if(display === "Fizz"){
-          //this action;
+        if(displayCurrent === "Fizz"){
+          // Think the jQuery animations are in a separate source file... Use alert as temporary code to test the if/else statement.
+          alert("correct");
+        } else {
+          alert("incorrect")
         }
       });
       $("#buzzIcon").click(function() {
-        if(display === "Buzz"){
-          //this action;
+        if(displayCurrent === "Buzz"){
+          // Think the jQuery animations are in a separate source file... Use alert as temporary code to test the if/else statement.
+          alert("correct");
+        } else {
+          alert("incorrect")
         }
       });
       $("#fizzBuzzIcon").click(function() {
-        if(display === "FizzBuzz"){
-          //this action;
+        if(displayCurrent === "FizzBuzz"){
+          // Think the jQuery animations are in a separate source file... Use alert as temporary code to test the if/else statement.
+          alert("correct");
+        } else {
+          alert("incorrect")
         }
       });
-      $("#counterIcon").click(function() {
-        if(display === counter){
-          //this action;
+      $("#nextNumberIcon").click(function() {
+        if(displayCurrent === count) {
+          // Think the jQuery animations are in a separate source file... Use alert as temporary code to test the if/else statement.
+          alert("correct");
+        } else {
+          alert("incorrect")
         }
       });
-*/
       $("#reset").click(function() {
         displayCurrent = 0;
         count = 0;
@@ -223,7 +244,7 @@
     1. Select a denominator for FIZZ: <input class="fields" type="number" value=1 id="userFizzNum"><br><br>
     2. Select a denominator for BUZZ:  <input class="fields" type="number" value=1 id="userBuzzNum"><br><br>
     3. When the game starts, you'll see a number in green.<br><br></div>
-    <div class="instructions" id="instructionKeep">Click <b>FIZZ</b> if the next number is divisible by <a id="userSelectFizz">1</a>,<b> BUZZ</b> if the next number is divisible by <a id="userSelectBuzz">1</a>, and <br><b>FIZZBUZZ</b> if the next number is divisible by both <a id="userSelectFizz2">1</a> and <a id="userSelectBuzz2">1</a>. Otherwise, click the next number!</div>
+    <div class="instructions" id="instructionKeep">Click <b>FIZZ</b> if the next number is divisible by <a id="userSelectFizz">your fizz number</a>,<b> BUZZ</b> if the next number is divisible by <a id="userSelectBuzz">your buzz number</a>, and <br><b>FIZZBUZZ</b> if the next number is divisible by both.  Otherwise, click the next number!</div>
   <div id="readyMessage"><center><p style="font-size:50px"><b style="font-family:acme">Are you ready to play?<b></p>
   <input type="submit" id="playGame" value="Start Your Game!"></div></center>
   <center><input style="display:none" type="submit" class="confirm" id="reset" value="Reset My Selections"></center><br>
@@ -240,6 +261,8 @@
     <input type="submit" class="icons" id="buzzIcon" value="Buzz">
     <input type="submit" class="icons" id="fizzBuzzIcon" value="FizzBuzz">
   </center>
+  <img class="images" id="soda1" src="http://www.losjalapenos.info/wp-content/uploads/2013/11/soda-pop.png">
+  <img class="images" id="bee1" src="http://www.wba.aplusanywhere.com/R85Content/media/pictures/writing1/bee.png">
   <!--Need to figure out how to place the variable on a submit button. Might be better to change the inputs to images, actually.-->
 </body>
 </html>
