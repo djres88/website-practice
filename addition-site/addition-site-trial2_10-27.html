@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Addition Site Trial 2</title>
+    <script src ="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+/*      var firstNum = $("#userFirstNum").val();
+        var secondNum = $("#userSecondNum").val();   */
+/*      ^INCORRECT. Variables must go INSIDE the function. WHY? Because .val() instructs the computer to take the CURRENT, static values. When the page loads, the current values are 0; they don't change as the user enters new numbers; the variables above are still assigned to 0.. Instead, you need to instruct the computer to take the values ONLY AFTER THE USER CLICKS THE "SUBMIT" BUTTON.*/
+        $("#calculator").click(function(){
+          var firstNum = $("#userFirstNum").val();
+          var secondNum = $("#userSecondNum").val();
+          var sum = Number(firstNum) + Number(secondNum);
+          alert(sum);
+        });
+      });
+    </script>
+  </head>
+  <body>
+    Enter your first number here:<input id="userFirstNum" type="number" value="0"><br>
+    Enter your second number here:<input id="userSecondNum" type="number" value="0"><br>
+    <input id="calculator" type="submit" value="submit">
+  </body>
+</html>
