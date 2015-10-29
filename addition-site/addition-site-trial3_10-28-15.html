@@ -36,13 +36,14 @@
           width:400px;
           color:white;
           text-align:center;
-          height
         }
       </style>
-    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.js">
     </script>
     <script type="text/javascript">
-      $(document).ready() {
+  //    $(document).ready() {
+  // ^ INCORRECT. You forgot the function part:
+      $(document).ready(function() {
         $("#calculator").click(function() {
           var firstNum = $("#userFirstNum").val();
           var secondNum = $("#userSecondNum").val();
@@ -51,7 +52,7 @@
           alert("Your total is " + sum);
           $("#displayNum").text(sum);
         })
-      }
+      });
     </script>
 
   </head>
@@ -60,12 +61,12 @@
     <h1>This Site Adds Numbers!</h1>
     <div class="prompts">
       <a id="firstPrompt">Enter your first number:  </a><input id="userFirstNum" class="fields" type="number" value=0><br>
-      <a id="secondPrompt">Enter your second number:  </a><input id="userFirstNum" class="fields" type="number" value=0><br>
+      <a id="secondPrompt">Enter your second number:  </a><input id="userSecondNum" class="fields" type="number" value=0><br>
       <input id="calculator" type="submit" value="Add Your Numbers!"><br>
     </div>
     <div class="display">
       <h2 id="displayHeader">Your Total Is<h2>
-      <div id="displayNum">...<div>
+      <a id="displayNum">...</a>
     </div>
   </body>
 </html>
