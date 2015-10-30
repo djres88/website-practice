@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Add My Numbers!</title>
+  </head>
+  <style>
+    body {
+      text-align: center;
+      background-color: black;
+      color: white;
+      font-size: 35px;
+    }
+    h1 {
+      font-size: 80px;
+      font-family: fantasy;
+    }
+    h2 {
+      font-size: 60px;
+    }
+    .fields {
+      text-align: center;
+      font-size: 25px;
+    }
+    #calculator {
+      width: 500px;
+      height: 80px;
+      font-size: 40px;
+      font-family: inherit;
+      background-color: lightgray;
+      color: black;
+      border-color: yellow;
+    }
+    #display {
+      background-color: white;
+      color: black;
+      width: 600px;
+      margin:auto;
+    }
+    #displayNum {
+      margin-top: -60px;
+      font-size: 80px;
+      color: green;
+    }
+  </style>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+  </script>
+  <script type="text/javascript">
+    $(document).ready(function() {
+      $("#calculator").click(function() {
+        var num1 = $("#userNum1").val();
+        var num2 = $("#userNum2").val();
+        sum = Number(num1) + Number(num2);
+        $("#displayNum").text(sum);
+      })
+    })
+  </script>
+  <body>
+    <h1>Add My Numbers</h1>
+    Enter your first number to add: <input class="fields" type="number" value=0 id="userNum1"><br>
+    Enter your second number to add: <input class="fields" type="number" value=0 id="userNum2"><br><br>
+    <input id="calculator" type="submit" value="Find Your Sum"><br>
+    <div id=display>
+    <h2>Your sum is:</h2>
+      <div id="displayNum">...</div>
+    </div>
+  </body>
+</html>
