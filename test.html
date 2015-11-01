@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Test Hover-Over</title>
+    <style media="screen">
+      #elementToReveal {
+        font-size: 100px;
+        font-family: fantasy;
+        text-align: center;
+      }
+    </style>
+    <script src= "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js">
+    </script>
+    <script type="text/javascript">
+      $(document).ready(function() {
+        $(elementToReveal)
+          .mouseover(
+            function() {
+              $(this).fadeOut();
+            })
+          .mouseleave(
+            function() {
+              $(this).fadeIn();
+            })
+      });
+    </script>
+  </head>
+  <body>
+    <p id="elementToReveal">This should disappear/reappear</p>
+  </body>
+</html>
