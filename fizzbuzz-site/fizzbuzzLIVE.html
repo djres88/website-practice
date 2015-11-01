@@ -157,10 +157,10 @@
       };
       $(".nav").hover(
         function() {
-          $(".instructions").show();
+          $(".instructions").show("slow");
         },
         function() {
-          $(".instructions").hide();
+          $(".instructions").hide("slow");
         });
       $("#playGame").click(function() {
         var userFizzRepeat = $("#userFizzNum").val();
